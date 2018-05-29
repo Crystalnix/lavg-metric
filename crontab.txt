@@ -1,1 +1,1 @@
-* * * * * root /bin/aws cloudwatch put-metric-data --metric-name "LoadAverage5Min" --value $(cat /proc/loadavg | awk '{print $2}') --unit "Count" $CLOUDWATCH_OPTS > /tmp/cpuload-lastrun.log 2>&1;
+* * * * * source /app/load_avg.sh > /tmp/cpuload-lastrun.log 2>&1;
