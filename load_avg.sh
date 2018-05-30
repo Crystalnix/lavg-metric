@@ -8,7 +8,7 @@ if !([ $AWS_DEFAULT_REGION ]); then
 fi
 
 if !([ $CLOUDWATCH_OPTS ]); then
-    export CLOUDWATCH_OPTS="--namespace System/Detail/Linux --dimensions Instance=$INSTANCEID"
+    export CLOUDWATCH_OPTS="--namespace ElasticBeanstalk --dimensions EnvironmentMetrics=$ENVIRONMENT_NAME"
 fi
 
 aws cloudwatch put-metric-data --metric-name "LoadAverage5Min" --value $(cat /tmp/proc/loadavg | awk '{print $2}') --unit "Count" $CLOUDWATCH_OPTS

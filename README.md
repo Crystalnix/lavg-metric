@@ -1,2 +1,2 @@
 # lavg-metric
-The metric for AWS CloudWatch
+The Load Average metric for AWS CloudWatch
