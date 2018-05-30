@@ -8,6 +8,7 @@ if !([ $AWS_DEFAULT_REGION ]); then
 fi
 
 if !([ $CLOUDWATCH_OPTS ]); then
+    ENVIRONMENT_NAME=`aws ec2 describe-tags --output text --filters "Name=resource-id,Values=$INSTANCEID" "Name=key,Values=elasticbeanstalk:environment-name" --region "$AWS_DEFAULT_REGION" --query "Tags[*].Value"`
     export CLOUDWATCH_OPTS="--namespace ElasticBeanstalk --dimensions EnvironmentMetrics=$ENVIRONMENT_NAME"
 fi
 
