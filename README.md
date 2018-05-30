@@ -5,3 +5,7 @@ The Load Average metric for AWS CloudWatch
 To deploy the application you have to specify the set of env variables:
 
 `ENVIRONMENT_NAME`(it required for grouping by Elastic Beanstalk environment)
+
+Mount volume:
+
+from `/proc/loadavg` to `/tmp/proc/loadavg`
